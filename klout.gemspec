@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{klout}
+  s.name = %q{kloutbg}
   s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Torres", "Brad Gilreath"]
   s.date = %q{2010-11-04}
-  s.description = %q{Klout - Twitter Analytics}
+  s.description = %q{Kloutbg - Fork of Jason Torres and updated to recent Klout API}
   s.email = %q{bwgilreath@gmail.com}
   s.extra_rdoc_files = ["lib/klout.rb", "README", "tasks/rspec.rake"]
   s.files = ["lib/klout.rb", "Manifest", "Rakefile", "README", "spec/klout_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "tasks/rspec.rake", "klout.gemspec"]
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{klout}
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Klout - Twitter Analytics}
+  s.summary = %q{Kloutbg - Twitter Analytics}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
