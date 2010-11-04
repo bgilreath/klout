@@ -18,7 +18,7 @@ Klout.score('jasontorres')
 
 
 class Klout
-  VERSION = '0.0.1'
+  VERSION = '1.1.0'
   class << self
     
     @@base_host = "http://api.klout.com"
@@ -41,16 +41,73 @@ class Klout
       @@api_key
     end
 
-    def score(username)
+    #Legacy Method :Score
+    #def score(username)
+      #request_uri = "#{@@base_host}/api/twitter/1/klout/#{@@api_key}/#{username}.json"
+     # request_uri = "#{@@base_host}/#{@@api_version}/klout.json?key=#{@@api_key}&users=#{username}"
+    #  return request(request_uri)
+    #end
+
+    #Legacy Method :Profile
+    #def profile(username)
+      #request_uri = "http://api.klout.com/api/twitter/1.1/profiledetail/#{@@api_key}/#{username}.json"
+      #return request(request_uri)
+    #end
+
+    #Score method: /klout
+    def klout(username)
       #request_uri = "http://klout.com/api/twitter/1/klout/#{@@api_key}/#{username}.json"
       request_uri = "#{@@base_host}/#{@@api_version}/klout.json?key=#{@@api_key}&users=#{username}"
       return request(request_uri)
     end
     
-    def profile(username)
-      request_uri = "http://klout.com/api/twitter/1.1/profiledetail/#{@@api_key}/#{username}.json"
+    #User method: /show
+    def show(username)
+      #http://api.klout.com/1/users/show.[xml_or_json]?key=[your_api_key]&users=[usernames]
+      request_uri = "#{@@base_host}/#{@@api_version}/users/show.json?key=#{@@api_key}&users=#{username}"
       return request(request_uri)
     end
+    
+    #User method: /topics
+    def topics(username)
+      #http://api.klout.com/1/users/topics.[xml_or_json]?key=[your_api_key]&users=[usernames]
+      request_uri = "#{@@base_host}/#{@@api_version}/users/topics.json?key=#{@@api_key}&users=#{username}"
+      return request(request_uri)
+    end
+    
+    #User method: /stats
+    def stats(username)
+      #http://api.klout.com/1/users/stats.[xml_or_json]?key=[your_api_key]&users=[usernames]
+      request_uri = "#{@@base_host}/#{@@api_version}/users/stats.json?key=#{@@api_key}&users=#{username}"
+      return request(request_uri)
+    end
+    
+    #User method: /history
+    def history(username,measure,start_date,end_date)
+      #http://api.klout.com/1/users/topics.[xml_or_json]?key=[your_api_key]&measure=[measure]&start_date=[start_date]&end_date=[end_date]&users=[usernames]
+      request_uri = "#{@@base_host}/#{@@api_version}/users/history.json?key=#{@@api_key}&measure=#{measure}&start_date=#{start_date}&end_date=#{end_date}&users=#{username}"
+      return request(request_uri)
+    end
+    
+    #Relationship method: /influenced_by
+    def influenced_by(username)
+      #http://api.klout.com/1/soi/influenced_by.[xml_or_json]?key=[your_api_key]&users=[usernames]
+      request_uri = "#{@@base_host}/#{@@api_version}/soi/influenced_by.json?key=#{@@api_key}&users=#{username}"
+      return request(request_uri)
+    end
+    
+    #Relationship method: /influencer_of
+    def influencer_of(username)
+      #http://api.klout.com/1/soi/influencer_of.[xml_or_json]?key=[your_api_key]&users=[usernames]
+      request_uri = "#{@@base_host}/#{@@api_version}/soi/influencer_of.json?key=#{@@api_key}&users=#{username}"
+      return request(request_uri)
+    end
+    
+    #Topic method: /search
+    #Not supported here yet
+    
+    #Topic method: /verify
+    #Not supported here yet
     
     def request(request_uri)
       url = URI.parse(request_uri)
@@ -70,10 +127,8 @@ class Klout
           end
         else
           response.error!
+        end
       end
     end
-      
-      
-    
-  end
+
 end
