@@ -9,9 +9,17 @@ sudo gem install kloutbg
 Usage and Example
 
 >> require 'rubygems'
->> require 'kloutbg'
->> Kloutbg.base_host = "http://api.klout.com"
->> Kloutbg.api_key = "yourkloutapikey"
+>> require 'klout'
+
+>> klout_client = Kloutbg.new("yourkloutapikey")
+=> #<Kloutbg:0x100c4e4>
+
+>> response = klout_client.klout("jasontorres")
+=> #<HTTParty::Response:0x531dd0 @parsed_response={"users"=>[{"kscore"=>19.74, "twitter_screen_name"=>"jasontorres"}], "status"=>200}, @response=#<Net::HTTPOK 200 OK readbody=true>, @headers={"x-powered-by"=>["PHP/5.3.2-1ubuntu4.5"], "connection"=>["close"], "content-type"=>["application/json"], "x-mashery-responder"=>["proxyworker-i-5366f33a.mashery.com"], "server"=>["Apache/2.2.14 (Ubuntu)"], "date"=>["Thu, 04 Nov 2010 21:07:41 GMT"], "content-length"=>["77"], "vary"=>["Accept-Encoding,User-Agent"], "accept-ranges"=>["bytes"]}>
+
+>>puts response.parsed_response["users"][0]["kscore"]
+=>19.74
+
 
 
 Not supported in this Gem:

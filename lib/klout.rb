@@ -7,8 +7,7 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 class Kloutbg
   include HTTParty
-  VERSION = '1.2.1'
-  class << self
+  VERSION = '1.2.2'
 
     @@base_host = "http://api.klout.com"
     @@api_version = "1"
@@ -89,5 +88,4 @@ class Kloutbg
     #Topic method: /verify
     #Not supported here yet
 
-  end
 end
