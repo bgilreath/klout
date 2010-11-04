@@ -4,7 +4,7 @@ require 'httparty'
 require 'fileutils'
 require './lib/klout'
 
-Echoe.new 'kloutbg', '1.2.0'  do |p|
+Echoe.new 'kloutbg', '1.2.1'  do |p|
   p.author = 'Brad Gilreath'
   p.email = 'bwgilreath@gmail.com'
   p.url = 'http://github.com/bgilreath/klout'
