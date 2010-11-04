@@ -21,7 +21,7 @@ class Klout
   VERSION = '0.0.1'
   class << self
     
-    @@base_host = "api.klout.com"
+    @@base_host = "http://api.klout.com"
     @@api_version = "1"
     @@api_key = ""
     
