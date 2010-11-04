@@ -20,12 +20,21 @@ Klout.score('jasontorres')
 class Klout
   VERSION = '0.0.1'
   class << self
-    @@base_host = "klout.com"
     
+    @@base_host = "api.klout.com"
+    @@api_version = "1"
     @@api_key = ""
+    
+    def base_host=(host)
+      @@base_host = host
+    end
 
     def api_key=(api)
       @@api_key = api
+    end
+    
+    def base_key
+      @@base_host
     end
     
     def api_key
@@ -33,7 +42,8 @@ class Klout
     end
 
     def score(username)
-      request_uri = "http://klout.com/api/twitter/1/klout/#{@@api_key}/#{username}.json"
+      #request_uri = "http://klout.com/api/twitter/1/klout/#{@@api_key}/#{username}.json"
+      request_uri = "#{@@base_host}/#{@@api_version}/klout.json?key=#{@@api_key}&users=#{username}"
       return request(request_uri)
     end
     
